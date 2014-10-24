@@ -22,7 +22,7 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
-        String[] states = getResources().getStringArray(R.array.states);
+        final String[] states = getResources().getStringArray(R.array.states);
         final ListView listView = (ListView) findViewById(R.id.listview);
 
         final ArrayList statesList = new ArrayList<String>(Arrays.asList(states));
@@ -36,18 +36,8 @@ public class MyActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 Toast.makeText(getApplicationContext(),
-                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
+                        "Clicked on " + states[position], Toast.LENGTH_LONG)
                         .show();
-                final String item = (String) parent.getItemAtPosition(position);
-                view.animate().setDuration(2000).alpha(0)
-                        .withEndAction(new Runnable() {
-                            @Override
-                            public void run() {
-                                statesList.remove(item);
-                                adapter.notifyDataSetChanged();
-                                view.setAlpha(1);
-                            }
-                        });
 
             }
         });
