@@ -31,26 +31,26 @@ public class MyActivity extends Activity {
                 new OptimizedCustomAdapter(this, states);
         listView.setAdapter(adapter);
 
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(),
-//                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
-//                        .show();
-//                final String item = (String) parent.getItemAtPosition(position);
-//                view.animate().setDuration(2000).alpha(0)
-//                        .withEndAction(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                statesList.remove(item);
-//                                adapter.notifyDataSetChanged();
-//                                view.setAlpha(1);
-//                            }
-//                        });
-//
-//            }
-//        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
+                        .show();
+                final String item = (String) parent.getItemAtPosition(position);
+                view.animate().setDuration(2000).alpha(0)
+                        .withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                statesList.remove(item);
+                                adapter.notifyDataSetChanged();
+                                view.setAlpha(1);
+                            }
+                        });
+
+            }
+        });
 
     }
 

@@ -30,7 +30,7 @@ public class OptimizedCustomAdapter extends ArrayAdapter<String> {
     }
 
     public OptimizedCustomAdapter(Context context, String[] values) {
-        super(context, R.layout.activity_my, values);
+        super(context, R.layout.row_layout, values);
         viewHolder = new ViewHolder();
         this.context = context;
         this.values = values;
@@ -47,7 +47,7 @@ public class OptimizedCustomAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             // inflate the view and put it in the holder
             LayoutInflater inflater = LayoutInflater.from(context);
-            convertView = inflater.inflate(R.layout.activity_my, null);
+            convertView = inflater.inflate(R.layout.row_layout, null);
             viewHolder.view = convertView;
         } else {
             convertView = viewHolder.view;
@@ -62,12 +62,11 @@ public class OptimizedCustomAdapter extends ArrayAdapter<String> {
 
         View right = convertView.findViewById(R.id.right);
         right.setBackgroundColor(rand.nextInt());
+        convertView.setTag(viewHolder);
 
         if (position % 2 == 0) {
-            convertView.setTag(viewHolder);
             convertView.setBackgroundColor(Color.rgb(231, 249, 255));
         } else {
-            convertView.setTag(viewHolder);
             convertView.setBackgroundColor(Color.rgb(195, 240, 255));
         }
 
