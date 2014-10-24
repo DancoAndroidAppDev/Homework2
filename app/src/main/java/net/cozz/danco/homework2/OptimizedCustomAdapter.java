@@ -22,7 +22,7 @@ public class OptimizedCustomAdapter extends ArrayAdapter<String> {
 
 
     public OptimizedCustomAdapter(Context context, String[] objects) {
-        super(context, R.layout.odd_row_layout, objects);
+        super(context, R.layout.activity_my, objects);
         viewHolder = new ViewHolder();
         this.context = context;
         this.values = objects;
@@ -46,7 +46,7 @@ public class OptimizedCustomAdapter extends ArrayAdapter<String> {
                 rowView = inflater.inflate(R.layout.even_row_layout, parent);
                 rowView.setTag(viewHolder);
             } else {
-                rowView = inflater.inflate(R.layout.odd_row_layout, null);
+                rowView = inflater.inflate(R.layout.odd_row_layout, parent);
                 convertView.setTag(viewHolder);
             }
 

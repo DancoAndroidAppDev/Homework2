@@ -22,7 +22,6 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
-
         String[] states = getResources().getStringArray(R.array.states);
         final ListView listView = (ListView) findViewById(R.id.listview);
 
