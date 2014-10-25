@@ -47,7 +47,6 @@ public class OptimizedCustomAdapter extends ArrayAdapter<String> {
 
         if (convertView == null) {
             // inflate the view and put it in the holder
-            Log.v(TAG, "inflating view.");
             LayoutInflater inflater = LayoutInflater.from(context);
             convertView = inflater.inflate(R.layout.row_layout, null);
 
@@ -56,7 +55,6 @@ public class OptimizedCustomAdapter extends ArrayAdapter<String> {
             Random rand = new Random(position);
             TextView textView = (TextView) convertView.findViewById(R.id.stateName);
             textView.setText(values[position]);
-            Log.v(TAG, "Setting state name to : " + values[position]);
             viewHolder.stateName = textView;
 
             View leftBox = convertView.findViewById(R.id.leftBox);
