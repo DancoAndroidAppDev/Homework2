@@ -2,6 +2,9 @@ package net.cozz.danco.homework2;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,6 +38,12 @@ public class MyActivity extends Activity {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+                String url = "http://www.google.com/search?output=toolbar&q=capital:" + states[position];
+                Intent i = new Intent(Intent.ACTION_WEB_SEARCH);
+                String term = "capital:" + states[position];
+                i.putExtra(SearchManager.QUERY, term);
+                startActivity(i);
+
                 Toast.makeText(getApplicationContext(),
                         "Clicked on " + states[position], Toast.LENGTH_LONG)
                         .show();
@@ -44,6 +53,21 @@ public class MyActivity extends Activity {
 
     }
 
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handleIntent(intent);
+    }
+
+
+    private void handleIntent(Intent intent) {
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            // handles a search query
+            String query = intent.getStringExtra(SearchManager.QUERY);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
