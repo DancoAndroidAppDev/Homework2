@@ -1,11 +1,19 @@
 package net.cozz.danco.homework2;
 
+import android.database.Cursor;
+import android.graphics.Paint;
+
 /**
  * Created by danco on 10/25/14.
  */
 public class Capital {
     private long id;
     private String capital;
+
+    public Capital(Cursor curson) {
+        this.id = curson.getLong(0);
+        this.capital = curson.getString(1);
+    }
 
     public long getId() {
         return id;

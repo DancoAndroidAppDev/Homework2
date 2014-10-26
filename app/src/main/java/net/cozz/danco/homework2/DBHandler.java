@@ -11,7 +11,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "stateCapitals";
-    public static final String TABLE_NAME = "capitals";
+    public static final String TABLE_CAPITALS = "capitals";
     public static final String KEY_ID = "_id";
     public static final String KEY_STATE = "state";
     public static final String KEY_CAPITAL = "capital";
@@ -22,7 +22,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (" +
+        db.execSQL("CREATE TABLE " + TABLE_CAPITALS + " (" +
                 KEY_ID + " INTEGER PRIMARY KEY, " +
                 KEY_STATE + " TEXT, " +
                 KEY_CAPITAL + " TEXT)");
@@ -30,7 +30,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CAPITALS);
 
         onCreate(db);
     }
