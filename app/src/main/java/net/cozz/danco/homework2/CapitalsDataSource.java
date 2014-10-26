@@ -34,15 +34,19 @@ public class CapitalsDataSource {
     }
 
 
-    public Capital addCapital(String cityName) {
+    public Capital addCapital(String stateName, String cityName) {
+        Capital capital = null;
         ContentValues values = new ContentValues();
+        values.put(DBHandler.KEY_STATE, stateName);
         values.put(DBHandler.KEY_CAPITAL, cityName);
         long insertId = database.insert(DBHandler.TABLE_CAPITALS, null, values);
         Cursor cursor = database.query(DBHandler.TABLE_CAPITALS, columns,
-                DBHandler.KEY_ID + " = " + insertId, null, null, null, null);
-        cursor.moveToFirst();
-        Capital capital = new Capital(cursor);
-        cursor.close();
+                DBHandler.KEY_ID + "=" + insertId, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            capital = new Capital(cursor);
+            cursor.close();
+        }
 
         return capital;
     }
@@ -67,8 +71,11 @@ public class CapitalsDataSource {
 
 
     public Capital getCapital(String state) {
-        Cursor cursor = database.query(DBHandler.TABLE_CAPITALS, columns,
-                "WHERE state = " + state, null, null, null, null);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(DBHandler.TABLE_CAPITALS,
+                columns,
+                DBHandler.KEY_STATE + " =?" + state,
+                null, null, null, null);
         cursor.moveToFirst();
         Capital capital = new Capital(cursor);
 

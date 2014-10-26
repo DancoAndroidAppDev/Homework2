@@ -10,9 +10,9 @@ public class Capital {
     private long id;
     private String capital;
 
-    public Capital(Cursor curson) {
-        this.id = curson.getLong(0);
-        this.capital = curson.getString(1);
+    public Capital(Cursor cursor) {
+        this.id = cursor.getLong(0);
+        this.capital = cursor.getString(2);
     }
 
     public long getId() {

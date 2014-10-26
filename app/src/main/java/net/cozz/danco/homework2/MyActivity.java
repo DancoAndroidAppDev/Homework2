@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,16 +15,35 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class MyActivity extends Activity {
+    private CapitalsDataSource datasource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+        final String[] capitals = getResources().getStringArray(R.array.capitals);
+
+        datasource = new CapitalsDataSource(this);
+        try {
+            datasource.open();
+            int i = 0;
+            for (String state : getResources().getStringArray(R.array.states)) {
+                datasource.addCapital(state, capitals[i++]);
+            }
+            List <Capital> capitalsList = datasource.getCapitals();
+            Log.d("", capitalsList.toString());
+        } catch (SQLException e) {
+            Log.d("MyActivity", "unable to open datasource");
+        }
+
 
         final String[] states = getResources().getStringArray(R.array.states);
         final ListView listView = (ListView) findViewById(R.id.listview);
@@ -38,14 +58,15 @@ public class MyActivity extends Activity {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                String url = "http://www.google.com/search?output=toolbar&q=capital:" + states[position];
-                Intent i = new Intent(Intent.ACTION_WEB_SEARCH);
-                String term = "capital:" + states[position];
-                i.putExtra(SearchManager.QUERY, term);
-                startActivity(i);
+//                String url = "http://www.google.com/search?output=toolbar&q=capital:" + states[position];
+//                Intent i = new Intent(Intent.ACTION_WEB_SEARCH);
+//                String term = "capital:" + states[position];
+//                i.putExtra(SearchManager.QUERY, term);
+//                startActivity(i);
 
                 Toast.makeText(getApplicationContext(),
-                        "Clicked on " + states[position], Toast.LENGTH_LONG)
+                        "Clicked on " + states[position] + ", capital = " +
+                                capitals[position], Toast.LENGTH_LONG)
                         .show();
 
             }
