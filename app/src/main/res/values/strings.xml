@@ -59,6 +59,59 @@
         <item>Wyoming</item>
     </string-array>
 
+    <string-array name="capitals">
+        <item>Montgomery</item>
+        <item>Juneau</item>
+        <item>Phoenix</item>
+        <item>Little Rock</item>
+        <item>Sacramento</item>
+        <item>Denver</item>
+        <item>Hartford</item>
+        <item>Dover</item>
+        <item>Tallahassee</item>
+        <item>Atlanta</item>
+        <item>Honolulu</item>
+        <item>Boise</item>
+        <item>Springfield</item>
+        <item>Indianapolis</item>
+        <item>Des Moines</item>
+        <item>Topeka</item>
+        <item>Frankfort</item>
+        <item>Baton Rouge</item>
+        <item>Augusta</item>
+        <item>Annapolis</item>
+        <item>Boston</item>
+        <item>Lansing</item>
+        <item>Saint Paul</item>
+        <item>Jackson</item>
+        <item>Jefferson City</item>
+        <item>Helena</item>
+        <item>Lincoln</item>
+        <item>Carson City</item>
+        <item>Concord</item>
+        <item>Trenton</item>
+        <item>Santa Fe</item>
+        <item>Albany</item>
+        <item>Raleigh</item>
+        <item>Bismarck</item>
+        <item>Columbus</item>
+        <item>Oklahoma City</item>
+        <item>Salem</item>
+        <item>Harrisburg</item>
+        <item>Providence</item>
+        <item>Columbia</item>
+        <item>Pierre</item>
+        <item>Nashville</item>
+        <item>Austin</item>
+        <item>Salt Lake City</item>
+        <item>Montpelier</item>
+        <item>Richmond</item>
+        <item>Olympia</item>
+        <item>Charleston</item>
+        <item>Madison</item>
+        <item>Cheyenne</item>
+    </string-array>
+
     <string name="title_activity_my">MyActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
