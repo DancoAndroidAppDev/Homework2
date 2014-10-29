@@ -12,7 +12,7 @@ public class Capital {
 
     public Capital(Cursor cursor) {
         this.id = cursor.getLong(0);
-        this.capital = cursor.getString(2);
+        this.capital = cursor.getString(cursor.getColumnIndex("capital"));
     }
 
     public long getId() {
