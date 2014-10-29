@@ -58,17 +58,27 @@ public class MyActivity extends Activity {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-//                String url = "http://www.google.com/search?output=toolbar&q=capital:" + states[position];
-//                Intent i = new Intent(Intent.ACTION_WEB_SEARCH);
-//                String term = "capital:" + states[position];
-//                i.putExtra(SearchManager.QUERY, term);
-//                startActivity(i);
+        /*
+                WebView webView = (WebView) findViewById(R.id.activity_my_web_view);
+                webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public void onPageFinished(WebView view, String url)
+                {
+                    webView.loadUrl("javascript:callMe(\""+data_val+"\")");
 
+                }
+            });
+
+         */
                 Toast.makeText(getApplicationContext(),
                         "Clicked on " + states[position] + ", capital = " +
-                                datasource.getCapital(states[position]), Toast.LENGTH_LONG)
+                                datasource.getCapital(states[position]), Toast.LENGTH_SHORT)
                         .show();
 
+                Intent i = new Intent(Intent.ACTION_WEB_SEARCH);
+                String term = "capital:" + states[position];
+                i.putExtra(SearchManager.QUERY, term);
+                startActivity(i);
             }
         });
 
