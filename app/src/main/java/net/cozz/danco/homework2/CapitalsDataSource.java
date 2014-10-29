@@ -70,12 +70,13 @@ public class CapitalsDataSource {
     }
 
 
-    public Capital getCapital(String state) {
+    public Capital getCapital(final String state) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query(DBHandler.TABLE_CAPITALS,
                 columns,
-                DBHandler.KEY_STATE + " =?" + state,
+                DBHandler.KEY_STATE + " ='" + state + "'",
                 null, null, null, null);
+//        Cursor cursor = db.rawQuery("SELECT * FROM capitals WHERE state = '" + state + "'", null);
         cursor.moveToFirst();
         Capital capital = new Capital(cursor);
 

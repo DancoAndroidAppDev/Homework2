@@ -66,7 +66,7 @@ public class MyActivity extends Activity {
 
                 Toast.makeText(getApplicationContext(),
                         "Clicked on " + states[position] + ", capital = " +
-                                capitals[position], Toast.LENGTH_LONG)
+                                datasource.getCapital(states[position]), Toast.LENGTH_LONG)
                         .show();
 
             }
