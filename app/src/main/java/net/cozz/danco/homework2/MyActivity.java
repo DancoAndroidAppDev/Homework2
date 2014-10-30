@@ -59,14 +59,14 @@ public class MyActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
         /*
-                WebView webView = (WebView) findViewById(R.id.activity_my_web_view);
-                webView.setWebViewClient(new WebViewClient() {
-                @Override
-                public void onPageFinished(WebView view, String url)
-                {
-                    webView.loadUrl("javascript:callMe(\""+data_val+"\")");
+            WebView webView = (WebView) findViewById(R.id.activity_my_web_view);
+            webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url)
+            {
+                webView.loadUrl("javascript:callMe(\""+data_val+"\")");
 
-                }
+            }
             });
 
          */
